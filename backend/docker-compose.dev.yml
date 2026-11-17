@@ -1,0 +1,12 @@
+# Local development override - binds ports to 127.0.0.1 ONLY.
+#   docker compose -f docker-compose.yml -f docker-compose.dev.yml up --build
+# Do not use this file on a server.
+services:
+  db:
+    ports:
+      - "127.0.0.1:5433:5432"
+  api:
+    environment:
+      TRUST_PROXY: "false"
+    ports:
+      - "127.0.0.1:3000:3000"
